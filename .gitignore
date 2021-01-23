@@ -1,0 +1,24 @@
+/node_modules
+
+/build
+
+
+# IDEs and editors
+/.idea
+.js
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# IDE - VSCode
+.vscode/*
+
+# misc
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
