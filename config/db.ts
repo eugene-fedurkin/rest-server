@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
+
 const url = ""; // TODO: add url
 
 const InitiateMongoServer = async () => {

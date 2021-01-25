@@ -1,10 +1,12 @@
-const express = require("express");
-const { check, validationResult } = require("express-validator");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const router = express.Router();
+import User from '../models/User';
 
-const User = require("../models/user");
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import * as expressValidator from 'express-validator';
+
+const { check, validationResult } = expressValidator;
+const router = express.Router();
 
 router.post(
   "/signup",
