@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const url = ""; // TODO: add url
+const url = "mongodb+srv://eug:123321@cluster0.ka0ie.mongodb.net/eug?retryWrites=true&w=majority"; // TODO: add url
 
 const InitiateMongoServer = async () => {
   try {

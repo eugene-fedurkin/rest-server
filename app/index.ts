@@ -2,9 +2,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 
-// const InitiateMongoServer = require("../config/db");
+const InitiateMongoServer = require("../config/db");
 
-// InitiateMongoServer();
+InitiateMongoServer();
 
 const signUp = require("./routes/signup");
 
