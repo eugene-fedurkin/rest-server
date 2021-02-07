@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const url = "mongodb+srv://eug:123321@cluster0.ka0ie.mongodb.net/eug?retryWrites=true&w=majority"; // TODO: add url
 
-const InitiateMongoServer = async () => {
+export default async () => {
   try {
     await mongoose.connect(url, {
       useNewUrlParser: true,
@@ -14,5 +14,3 @@ const InitiateMongoServer = async () => {
     throw e;
   }
 };
-
-module.exports = InitiateMongoServer;

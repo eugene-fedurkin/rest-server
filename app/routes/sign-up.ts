@@ -8,8 +8,8 @@ import * as expressValidator from 'express-validator';
 const { check, validationResult } = expressValidator;
 const router = express.Router();
 
-router.post(
-  "/signup",
+export const signUp = router.post(
+  "/sign-up",
   [
     check("username", "Please Enter a Valid Username")
       .not()
@@ -20,6 +20,7 @@ router.post(
     })
   ],
   async (req, res) => {
+    console.log('qweqwe')
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -74,5 +75,3 @@ router.post(
     }
   }
 );
-
-module.exports = router;
