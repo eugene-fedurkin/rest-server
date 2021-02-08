@@ -5,6 +5,10 @@
     "outDir": "./build/index",
     "strict": true,
     "noImplicitAny": false,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "typeRoots": [
+      "@types",
+      "./node_modules/@types",
+    ]
+  },
 }
