@@ -1,14 +1,14 @@
-import User from '../models/User';
-
-import express from 'express';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import express from 'express';
 import * as expressValidator from 'express-validator';
+import jwt from 'jsonwebtoken';
+
+import User from '../models/user';
 
 const { check, validationResult } = expressValidator;
 const router = express.Router();
 
-export const signUp = router.post(
+export default router.post(
   "/sign-up",
   [
     check("username", "Please Enter a Valid Username")

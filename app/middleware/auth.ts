@@ -1,4 +1,4 @@
-import { User } from './../models/user';
+import { IUser } from './../models/user';
 import jwt from 'jsonwebtoken';
 
 export default function(req, res, next) {
@@ -11,7 +11,7 @@ export default function(req, res, next) {
 
   try {
     const decoded = jwt.verify(t, "secret");
-    req.user = (decoded as any).user as User;
+    req.user = (decoded as any).user as IUser;
     next();
   } catch (e) {
     console.error(e);

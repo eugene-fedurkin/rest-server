@@ -3,9 +3,9 @@ import cors from 'cors';
 import express from 'express';
 
 import InitiateMongoServer from '../config/db';
-import { me } from './routes/me';
-import { signIn } from './routes/sign-in';
-import { signUp } from './routes/sign-up';
+import me from './routes/me';
+import signIn from './routes/sign-in';
+import signUp from './routes/sign-up';
 
 InitiateMongoServer();
 
