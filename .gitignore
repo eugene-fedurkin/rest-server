@@ -11,6 +11,7 @@
 .c9/
 *.launch
 .settings/
+/uploads/*
 
 # IDE - VSCode
 .vscode/*

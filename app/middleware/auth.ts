@@ -6,11 +6,10 @@ export default function(req, res, next) {
   if (!token) return res.status(401).json({ message: "Auth Error" });
 
   const parsedToken = token.split(' ');
-  // const type = parsedToken[0]; // ???
   const t = parsedToken[1];
 
   try {
-    const decoded = jwt.verify(t, "secret");
+    const decoded = jwt.verify(t, "secret"); // TODO: change secret
     req.user = (decoded as any).user as IUser;
     next();
   } catch (e) {
