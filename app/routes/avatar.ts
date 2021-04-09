@@ -7,28 +7,26 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-      cb(null, 'uploads/');
+      cb(null, 'app/uploads/');
   },
 
   // By default, multer removes file extensions so let's add them back
   filename: function(req, file, cb) {
-    console.log(file)
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
 
-let upload = multer({ storage: storage, fileFilter: imageFilter }).single('profile_pic');
+let upload = multer({ storage: storage, fileFilter: imageFilter }).single('upload');
 
-export default router.post('/upload-profile', (req, res) => {
-  console.log(req.file, upload)
-  // 'profile_pic' is the name of our file input field in the HTML form
-
-  upload(req, res, function(err) {
+export default router.post('/upload', async(req, res) => {
+    upload(req, res, function(err) {
       // req.file contains information of uploaded file
       // req.body contains information of text fields, if there were any
-      console.log(req.file)
-      if (req.fileValidationError) {
-          return res.send(req.fileValidationError);
+    console.log(req.file)
+
+      const error = (req as any).fileValidationError;
+      if (error) {
+          return res.send(error);
       }
       else if (!req.file) {
           return res.send('Please select an image to upload');
