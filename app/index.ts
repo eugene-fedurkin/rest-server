@@ -7,9 +7,11 @@ import me from './routes/me';
 import signIn from './routes/sign-in';
 import signUp from './routes/sign-up';
 import avatar from './routes/avatar';
+import profile from './routes/profile';
+
 import avatarGuard from './guard/avatar.guard';
 
-// InitiateMongoServer();
+InitiateMongoServer();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -23,6 +25,7 @@ app.use(corsSettings);
 app.use('/auth', signUp);
 app.use('/auth', signIn);
 app.use('/auth', me);
+app.use(profile);
 app.use('', avatar);
 
 

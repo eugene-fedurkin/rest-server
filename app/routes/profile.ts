@@ -1,13 +1,11 @@
 import User from './../models/user';
 import express from 'express';
-import auth from '../middleware/auth';
 
 const router = express.Router();
 
-export default router.get("/me", auth, async (req, res) => {
+export default router.get("/user/:id", async (req, res) => {
   try {
-    console.log(req.user);
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.params.id).select('-password');
     res.json(user);
   } catch (e) {
     res.send({ message: "Error in Fetching user" });
