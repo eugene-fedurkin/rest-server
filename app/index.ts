@@ -8,6 +8,8 @@ import signIn from './routes/sign-in';
 import signUp from './routes/sign-up';
 import avatar from './routes/avatar';
 import profile from './routes/profile';
+import getUserBook from './routes/book/book-get';
+import postUserBook from './routes/book/book-post';
 
 import avatarGuard from './guard/avatar.guard';
 
@@ -25,6 +27,9 @@ app.use(corsSettings);
 app.use('/auth', signUp);
 app.use('/auth', signIn);
 app.use('/auth', me);
+app.use(getUserBook);
+app.use(postUserBook);
+
 app.use(profile);
 app.use('', avatar);
 

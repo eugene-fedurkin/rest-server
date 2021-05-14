@@ -45,7 +45,6 @@ export default router.post('/upload', auth, async(req, res) => {
       }
       if (req.user?.id) {
         const staticFolderName = 'uploads/'; // TODO: move it to const
-        console.log(req.file.path.slice(staticFolderName.length))
         await User.updateOne(
           { _id: req.user.id },
           { $set: { avatar: req.file.path.slice(staticFolderName.length) } }

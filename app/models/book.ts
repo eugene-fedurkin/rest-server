@@ -2,7 +2,8 @@ import { Document, Model, model, Schema } from 'mongoose';
 
 export interface IBook extends Document {
   name: string;
-  condition: any;
+  author: string;
+  // condition: any;
   description: string;
 }
 
@@ -11,17 +12,17 @@ const bookSchema: Schema<IBook> = new Schema<IBook>({
     type: String,
     required: true
   },
-  condition: {
+  author: {
     type: String,
-    enum: ['new', 'excellent', 'good', 'acceptable', 'bad', 'digital book'],
     required: true
   },
+  // condition: {
+  //   type: String,
+  //   enum: ['new', 'excellent', 'good', 'acceptable', 'bad', 'digital book'],
+  //   required: true
+  // },
   description: {
     type: String
-  },
-  uploadDate: {
-    type: Date,
-    default: Date.now()
   }
 });
 
