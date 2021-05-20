@@ -1,13 +1,12 @@
 import { Document, Model, model, Schema } from 'mongoose';
 
 export interface IBookRelation extends Document {
-  name: string;
+  bookId: string;
   condition: any;
-  description: string;
 }
 
 const bookRelationSchema: Schema<IBookRelation> = new Schema<IBookRelation>({
-  book: {
+  bookId: {
     type: String,
     required: true
   },
@@ -15,9 +14,6 @@ const bookRelationSchema: Schema<IBookRelation> = new Schema<IBookRelation>({
     type: String,
     enum: ['new', 'excellent', 'good', 'acceptable', 'bad', 'digital book'],
     required: true
-  },
-  description: {
-    type: String
   }
 });
 

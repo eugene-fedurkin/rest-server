@@ -10,6 +10,7 @@ import avatar from './routes/avatar';
 import profile from './routes/profile';
 import getUserBook from './routes/book/book-get';
 import postUserBook from './routes/book/book-post';
+import getUserBooks from './routes/book/books-get';
 
 import avatarGuard from './guard/avatar.guard';
 
@@ -28,6 +29,7 @@ app.use('/auth', signUp);
 app.use('/auth', signIn);
 app.use('/auth', me);
 app.use(getUserBook);
+app.use(getUserBooks);
 app.use(postUserBook);
 
 app.use(profile);
