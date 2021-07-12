@@ -11,6 +11,7 @@ import profile from './routes/profile';
 import getUserBook from './routes/book/book-get';
 import postUserBook from './routes/book/book-post';
 import getUserBooks from './routes/book/books-get';
+import getUsers from './routes/user/users';
 
 import avatarGuard from './guard/avatar.guard';
 
@@ -31,6 +32,7 @@ app.use('/auth', me);
 app.use(getUserBook);
 app.use(getUserBooks);
 app.use(postUserBook);
+app.use(getUsers);
 
 app.use(profile);
 app.use('', avatar);
