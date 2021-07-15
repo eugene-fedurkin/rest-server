@@ -10,7 +10,7 @@ export default router.get("/users", async (req, res) => {
     const offset = req.query.offset || 0;
     const sort = req.query.sort
       ? (() => {
-          const sortPart = (req.query.sort as string).split(' ');
+          const sortPart = (req.query.sort as string).split(',');
           
           return { [sortPart[0]]: (sortPart[1] || '').toLocaleLowerCase() === 'desc' ? -1 : 1 };
         })()
@@ -18,12 +18,15 @@ export default router.get("/users", async (req, res) => {
 
     const users = await User.find()
       .select('-password')
+      .sort(sort)
       .limit(+limit)
       .skip(+offset)
-      .sort(sort);
+
+    const totalCount = await User.countDocuments();
+
     res.json({
       data: users,
-      total: users.length
+      total: totalCount
     });
   } catch (e) {
     res.send({ message: "Error in Fetching user" });

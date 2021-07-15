@@ -37,8 +37,8 @@ export default router.get("/users/:userId/books", async (req, res) => {
     const offset = req.query.offset || 0;
     const sort = req.query.sort
       ? (() => {
-          const sortPart = (req.query.sort as string).split(' ');
-          
+          const sortPart = (req.query.sort as string).split(',');
+
           return { [sortPart[0]]: (sortPart[1] || '').toLocaleLowerCase() === 'desc' ? -1 : 1 };
         })()
       : {};
